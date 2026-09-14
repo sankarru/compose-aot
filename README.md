@@ -4,6 +4,10 @@ Nothing in this project depends on a machine, user, or absolute path:
 
 - **SDK**: resolved from `ANDROID_HOME` / `ANDROID_SDK_ROOT` env vars
   (a git-ignored `local.properties` with `sdk.dir=` also works).
+  Needs `platforms;android-35` plus build-tools `37.0.0`.
+  ARM64 Linux note: stock Google build-tools ship an x86_64-only `aapt2`
+  that cannot start on ARM64 — install the native aarch64 build-tools
+  from https://github.com/sankarru/fixed into `$ANDROID_HOME/build-tools/`.
 - **Gradle**: `./gradlew` wrapper pins Gradle 8.14.3; no local install needed.
 - **JDK**: 21 (any JDK 17+ runs the build; AGP 8.13 requires 17+).
 

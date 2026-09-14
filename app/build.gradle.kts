@@ -9,8 +9,13 @@ android {
     namespace = "com.example.aotmin"
     // compileSdk/targetSdk 35: present in every current SDK install and the
     // AGP 8.13 default. minSdk 24 keeps the desugaring surface small and
-    // stable for R8/D8. No buildToolsVersion: AGP picks the matching default.
+    // stable for R8/D8.
     compileSdk = 35
+    // Pinned: stock Google build-tools ship an x86_64-only aapt2, which
+    // cannot even start on ARM64 Linux. Use the native aarch64 build-tools
+    // from https://github.com/sankarru/fixed (or any 37.0.0) on ARM64.
+    // x86_64 machines can use the stock 37.0.0 from sdkmanager as-is.
+    buildToolsVersion = "37.0.0"
 
     defaultConfig {
         applicationId = "com.example.aotmin"
