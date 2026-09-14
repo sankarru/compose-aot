@@ -1,12 +1,14 @@
 # Hand-authored baseline profile (human-readable format) for the startup path.
-# Flags: H = hot, S = startup, P = post-startup. At install time ProfileInstaller
-# hands this to dexopt, which AOT-compiles the listed methods on-device --
-# the install-time half of "stable AOT" (R8 is the compile-time half).
+# Method flags: H = hot, S = startup, P = post-startup. At install time
+# ProfileInstaller hands this to dexopt, which AOT-compiles the listed
+# methods on-device -- the install-time half of "stable AOT" (R8 is the
+# compile-time half).
 #
 # Only methods guaranteed to exist with exactly these signatures are listed;
-# unknown entries are ignored, but malformed lines fail the build.
+# unknown entries are ignored, but malformed lines fail the build. NOTE:
+# class rules take NO flags -- `PLcom/...` is a build error.
 HSPLcom/example/aotmin/AotApp;->onCreate()V
 HSPLcom/example/aotmin/MainActivity;->onCreate(Landroid/os/Bundle;)V
 HSPLandroidx/activity/ComponentActivity;->onCreate(Landroid/os/Bundle;)V
-PLcom/example/aotmin/AotApp;
-PLcom/example/aotmin/MainActivity;
+Lcom/example/aotmin/AotApp;
+Lcom/example/aotmin/MainActivity;
